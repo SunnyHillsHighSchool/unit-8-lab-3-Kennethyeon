@@ -368,6 +368,56 @@ public class Picture
 
    ////////////////////// methods ///////////////////////////////////////
 
+//code by Kenneth Yeon
+public void sepiaFilter()
+{
+  //create a pixel array
+  Pixel[][]pixels = this.getPixels2D();
+  //create a pixel variables
+  Pixel pixel = null;
+  //create red variables
+  int redColor = 0;
+  int newRed = 0;
+  //create blue variables
+  int blueColor = 0;
+  int newBlue = 0;
+  //create green variables
+  int greenColor = 0;
+  int newGreen = 0;
+  //loop through each column and row
+  for (int r = 0; r < pixels.length; r++)
+  {
+    for (int c = 0; c < pixels[0].length; c++)
+    {
+      //get the current pixel
+      pixel = pixels[r][c];
+      //get the color values for each color of the pixel
+      redColor = pixel.getRed();
+      blueColor = pixel.getBlue();
+      greenColor = pixel.getGreen();
+      //use the algorithm to calculate the new colors
+      newRed = (int) (0.393*redColor + 0.769*greenColor + 0.189*blueColor);
+      if (newRed > 255)
+      {
+        newRed = 255;
+      }
+      newGreen = (int) (0.349*redColor + 0.686*greenColor + 0.168*blueColor);
+      if (newGreen > 255)
+      {
+        newGreen = 255;
+      }
+      newBlue = (int) (0.272*redColor + 0.534*greenColor + 0.131*blueColor);
+      if (newBlue > 255)
+      {
+        newBlue = 255;
+      }
+      //set pixel colors to newColors
+      pixel.setRed(newRed);
+      pixel.setBlue(newBlue);
+      pixel.setGreen(newGreen);
+    }
+  }
+}
    
 
 
