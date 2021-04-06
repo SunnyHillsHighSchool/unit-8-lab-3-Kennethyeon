@@ -395,7 +395,7 @@ public void sepiaFilter()
       redColor = pixel.getRed();
       blueColor = pixel.getBlue();
       greenColor = pixel.getGreen();
-      //use the algorithm to calculate the new colors
+      //use the algorithm to calculate the new colors and make sure each color is less than or equal to 255
       newRed = (int) (0.393*redColor + 0.769*greenColor + 0.189*blueColor);
       if (newRed > 255)
       {
